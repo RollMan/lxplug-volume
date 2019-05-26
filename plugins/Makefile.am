@@ -32,6 +32,14 @@ volumealsabt_la_LDFLAGS = \
 	-lasound \
 	-lxml2
 
+# test
+bin_PROGRAMS=test01
+test01_SOURCES=volumealsabt/test/test01/test01.c
+test01_CFLAGS = $(volumealsabt_la_CFLAGS)
+test01_LDFLAGS = $(volumealsabt_la_LDFLAGS) -L/usr/lib/x86_64-linux-gnu/lxpanel -lm -llxpanel
+
+TEST=test01
+
 install-exec-hook:
 	rm -f $(DESTDIR)$(libdir)/lxpanel/plugins/*.la
 	rm -f $(DESTDIR)$(libdir)/lxpanel/plugins/*.a
